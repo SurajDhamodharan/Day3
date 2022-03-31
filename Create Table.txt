@@ -1,0 +1,13 @@
+CREATE TABLE EMP2 
+(
+ EMPNO               int primary key,
+ ENAME               VARCHAR(10) not null,
+GENDER			CHAR(1) default 'F',
+EMAIL 			VARCHAR(20) unique,
+ JOB                 VARCHAR(9) check (job in ('SALESMAN', 'CLERK', 'MANAGER', 'PRESIDENT', 'ANALYST')),
+ MGR                 int REFERENCES EMP2(EMPNO),
+ HIREDATE            DATE check (hiredate > '2021-03-31'),
+ SAL                 int check (sal > 5000),
+ COMM                int check (comm > 200),
+ DEPTNO              int
+);
